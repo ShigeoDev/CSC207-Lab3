@@ -72,8 +72,8 @@ Igbo	ig
 Indonesian	id
 Interlingua (International Auxiliary Language Association)	ia
 Interlingue, Occidental	ie
-Inuktitut	iu
-Inupiaq	ik
+Inuktitut   iu
+Inupiaq ik
 Irish	ga
 Italian	it
 Japanese	ja

@@ -21,27 +21,27 @@ public class InLabByHandTranslator implements Translator {
      * @param country the country
      * @return list of language abbreviations which are available for this country
      */
-    @Override
-    public List<String> getCountryLanguages(String country) {
-        // TODO Checkstyle: The String "can" appears 4 times in the file.
-        if ("can".equals(country)) {
-            return new ArrayList<>(List.of("de", "en", "zh"));
-        }
-        return new ArrayList<>();
-    }
-
     // TODO Checkstyle: Static variable definition in wrong order.
     public static final String CANADA = "can";
 
+    @Override
+    public List<String> getCountryLanguages(String country) {
+        // TODO Checkstyle: The String "can" appears 4 times in the file.
+        if (CANADA.equals(country)) {
+            return new ArrayList<>(List.of("de", "en", "zh", "es", "jp", "ru", "hi"));
+        }
+        return new ArrayList<>();
+    }
     /**
      * Returns the country abbreviations for all countries whose translations are
      * available from this Translator.
      *
      * @return list of country abbreviations for which we have translations available
      */
+
     @Override
     public List<String> getCountries() {
-        return new ArrayList<>(List.of("can"));
+        return new ArrayList<>(List.of(CANADA));
     }
 
     /**
@@ -51,24 +51,38 @@ public class InLabByHandTranslator implements Translator {
      * @param language the language
      * @return the name of the country in the given language or null if no translation is available
      */
+
     @Override
     public String translate(String country, String language) {
         // TODO Checkstyle: Return count is 5 (max allowed for non-void methods/ lambdas is 2).
         // TODO Checkstyle: String literal expressions should be on the left side of an equals comparison
-        if (!country.equals("can")) {
-            return null;
+        String translation = "";
+        if (!country.equals(CANADA)) {
+            if ("de".equals(language)) {
+                translation = "Kanada";
+            }
+            else if ("en".equals(language)) {
+                translation = "Canada";
+            }
+            else if ("zh".equals(language)) {
+                translation = "加拿大";
+            }
+            else if ("es".equals(language)) {
+                translation = "Canadá";
+            }
+            else if ("jp".equals(language)) {
+                translation = "カナダ";
+            }
+            else if ("ru".equals(language)) {
+                translation = "Канада";
+            }
+            else if ("hi".equals(language)) {
+                translation = "कनाडा";
+            }
         }
-        if (language.equals("de")) {
-            return "Kanada";
+        if (!translation.isEmpty()) {
+            return translation;
         }
-        else if (language.equals("en")) {
-            return "Canada";
-        }
-        else if ("zh".equals(language)) {
-            return "加拿大";
-        }
-        else {
-            return null;
-        }
+        return null;
     }
 }
