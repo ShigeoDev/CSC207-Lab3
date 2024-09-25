@@ -52,7 +52,8 @@ public class CountryCodeConverter {
                         country.append(" ");
                     }
                 }
-                countries.put(country.toString(), Arrays.copyOfRange(lineElements, lineElements.length - codeLength, lineElements.length));
+                countries.put(country.toString(), Arrays
+                        .copyOfRange(lineElements, lineElements.length - codeLength, lineElements.length));
                 codes.put(lineElements[lineElements.length - (codeLength - 1)], country.toString());
             }
 
